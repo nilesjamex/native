@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
 export default function Form({ navigation }) {
     const [user, setUser] = useState({

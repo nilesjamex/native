@@ -1,36 +1,41 @@
 import React, {useState} from 'react'
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
 
-export default function Form({ navigation }) {
+export default function Form() {
     const [user, setUser] = useState({
         name: "",
-        password: ""
+        email: "",
+        password: "",
+        password2: "",
     });
     const {name, password} = user;
-    // navigation
-    const pressHandler = () => {
-        navigation.push("Logins");
-    }
     return (
         <View>
         <View >
             <Text style={styles.intro}> Login To Your Todo App</Text>
         </View>
         <View style={styles.form}>
+            <Text style={styles.label}>Enter Username</Text>
+            <TextInput style={styles.input} placeholder="enter email" defaultValue={name} onChangeText={(val) => {setUser({name: val})}} />
+        </View>
+        <View style={styles.form}>
             <Text style={styles.label}>Enter Email</Text>
-            <TextInput style={styles.input} placeholder="enter email" defaulValue={name} onChangeText={(val) => {setUser({name: val}); console.log(val)}} />
+            <TextInput style={styles.input} placeholder="enter email" defaultValue={email} onChangeText={(val) => {setUser({email: val})}} />
         </View>
         <View style={styles.form}>
             <Text style={styles.label}>Enter Password</Text>
-            <TextInput style={styles.input} placeholder="enter password" defaultValue={password} onChangeText={(val) => {setUser({password: val}); console.log(val)}} />
+            <TextInput style={styles.input} placeholder="enter password" defaultValue={password} onChangeText={(val) => {setUser({password: val})}} />
+        </View>
+        <View style={styles.form}>
+            <Text style={styles.label}>Confirm Password</Text>
+            <TextInput style={styles.input} placeholder="confirm password" defaultValue={password2} onChangeText={(val) => {setUser({password2: val})}} />
         </View>
         <View style={styles.cen}>
-            <Text>Don't have an account? <Text onPress={pressHandler}>Sign Up Here</Text>
-            </Text>
+            <Text>Don't have an account? Sign Up Here</Text>
         </View>
         <View style={styles.button}>
-            <Button onPress={pressHandler} title="Login" color="#2c2c2c" />
+            <Button title="Login" color="#2c2c2c" />
                 </View>
         </View>
     )

@@ -26,7 +26,7 @@ export default function Form({ navigation }) {
             <TextInput style={styles.input} placeholder="enter password" defaultValue={password} onChangeText={(val) => {setUser({password: val}); console.log(val)}} />
         </View>
         <View style={styles.cen}>
-            <Text>Don't have an account? <Text onPress={pressHandler}>Sign Up Here</Text>
+            <Text>Don't have an account? <TouchableOpacity onPress={pressHandler}>Sign Up Here</TouchableOpacity>
             </Text>
         </View>
         <View style={styles.button}>
